@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+这是一个通过 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 创建的 [Next.js](https://nextjs.org/) 项目，并集成了 [Clerk.com](https://clerk.com) 来实现 Google 登录功能。
 
-## Getting Started
+## 开始使用
 
-First, run the development server:
+首先，启动开发服务器：
 
 ```bash
 npm run dev
-# or
+# 或者
 yarn dev
-# or
+# 或者
 pnpm dev
-# or
+# 或者
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+使用浏览器打开 [http://localhost:3000](http://localhost:3000) 查看效果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+你可以通过修改 `app/page.tsx` 文件开始编辑页面。页面会在编辑时自动更新。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+这个项目使用 [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) 来自动优化并加载 Inter 字体，这是一款定制的 Google 字体。
 
-## Learn More
+另外，项目使用了 [Clerk.com](https://clerk.com) 来处理身份验证和用户管理，包括通过 Google 登录的功能。Clerk 提供了无缝集成的用户认证方案，使得实现社交登录变得简单。
 
-To learn more about Next.js, take a look at the following resources:
+## 了解更多
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+要了解更多关于 Next.js 和 Clerk 的内容，请查看以下资源：
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Next.js 文档](https://nextjs.org/docs) - 了解 Next.js 的功能和 API。
+- [学习 Next.js](https://nextjs.org/learn) - 一个互动的 Next.js 教程。
+- [Clerk 文档](https://clerk.com/docs) - 了解如何配置和使用 Clerk 进行身份验证。
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+你还可以访问 [Next.js 的 GitHub 仓库](https://github.com/vercel/next.js/) - 欢迎提供反馈和贡献！
