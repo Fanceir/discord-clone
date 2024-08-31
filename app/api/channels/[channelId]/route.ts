@@ -11,7 +11,6 @@ export async function DELETE(
   try {
     const profile = await currentProfile();
     const { searchParams } = new URL(req.url);
-
     const serverId = searchParams.get("serverId");
 
     if (!profile) {
