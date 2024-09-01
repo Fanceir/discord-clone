@@ -1,18 +1,23 @@
-import { currentProfile } from "@/lib/current-profile";
+import { ChannelType, MemberRole } from "@prisma/client";
 import { redirect } from "next/navigation";
+import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
+
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-import ServerHeader from "@/components/server/server-header";
-import ServerChannel from "@/components/server/server-channel";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import ServerSearch from "@/components/server/server-search";
-import ServerSection from "@/components/server/server-section";
-import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
-import { ChannelType, MemberRole } from "@prisma/client";
-import ServerMember from "@/components/server/server-member";
+
+import ServerHeader from "./server-header";
+import ServerSearch from "./server-search";
+import ServerSection from "./server-section";
+import ServerChannel from "./server-channel";
+import ServerMember from "./server-member";
+
 interface ServerSidebarProps {
   serverId: string;
 }
+
 const iconMap = {
   [ChannelType.TEXT]: <Hash className="mr-2 h-4 w-4" />,
   [ChannelType.AUDIO]: <Mic className="mr-2 h-4 w-4" />,
@@ -27,11 +32,13 @@ const roleIconMap = {
   [MemberRole.GUEST]: null,
 };
 
-const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
+export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
   const profile = await currentProfile();
+
   if (!profile) {
     return redirect("/");
   }
+
   const server = await db.server.findUnique({
     where: {
       id: serverId,
@@ -52,6 +59,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
       },
     },
   });
+
   const textChannels = server?.channels.filter(
     (channel) => channel.type === ChannelType.TEXT
   );
@@ -75,6 +83,7 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
   const role = server.members.find(
     (member) => member.profileId === profile.id
   )?.role;
+
   return (
     <div className="flex flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5]">
       <ServerHeader server={server} role={role} />
@@ -203,5 +212,3 @@ const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
     </div>
   );
 };
-
-export default ServerSidebar;

@@ -1,32 +1,43 @@
 "use client";
-import { CreateServerModal } from "@/components/modals/create-server-modal";
+
 import { useEffect, useState } from "react";
+
+import CreateServerModal from "@/components/modals/create-server-modal";
 import InviteModal from "@/components/modals/invite-modal";
 import EditServerModal from "@/components/modals/edit-server-modal";
 import MembersModal from "@/components/modals/members-modal";
-import CreateChanelModal from "@/components/modals/create-channel-modal";
-import DeleteChannelModal from "@/components/modals/delete-channel-modal";
+import CreateChannelModal from "@/components/modals/create-channel-modal";
+import LeaveServerModal from "@/components/modals/leave-server-modal";
 import DeleteServerModal from "@/components/modals/delete-server-modal";
-import LeaveServerModal from "../modals/leave-server-modal";
-const ModalProvider = () => {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  if (!isMounted) return null;
+import DeleteChannelModal from "@/components/modals/delete-channel-modal";
+import EditChannelModal from "@/components/modals/edit-channel-modal";
+import MessageFileModal from "@/components/modals/message-file-modal";
+import DeleteMessageModal from "@/components/modals/delete-message-modal";
 
-  return (
-    <>
-      {" "}
-      <CreateServerModal /> <InviteModal />
-      <EditServerModal />
-      <MembersModal />
-      <CreateChanelModal />
-      <DeleteChannelModal />
-      <DeleteServerModal />
-      <LeaveServerModal />
-    </>
-  );
+export const ModalProvider = () => {
+    const [isMounted, setIsMounted] = useState<boolean>(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) {
+        return null;
+    }
+
+    return (
+        <>
+            <CreateServerModal />
+            <InviteModal />
+            <EditServerModal />
+            <MembersModal />
+            <CreateChannelModal />
+            <LeaveServerModal />
+            <DeleteServerModal />
+            <DeleteChannelModal />
+            <EditChannelModal />
+            <MessageFileModal />
+            <DeleteMessageModal />
+        </>
+    );
 };
-
-export default ModalProvider;

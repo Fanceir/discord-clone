@@ -51,7 +51,7 @@ const LeaveServerModal = () => {
             Are you sure you want to leave{" "}
             <span className="font-semibold text-indigo-500">
               {server?.name}
-            </span>{" "}
+            </span>
             ?
           </DialogDescription>
         </DialogHeader>
