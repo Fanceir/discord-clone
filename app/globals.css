@@ -74,4 +74,4 @@ body,
     @apply bg-background text-foreground;
   }
 }
-@imort
+@import"@uploadthing/react/styles.css"
